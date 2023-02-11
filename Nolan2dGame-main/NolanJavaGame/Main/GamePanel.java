@@ -9,16 +9,22 @@ package Main;
  */
 import java.awt.Dimension;
 import javax.swing.JPanel;
+
+
+import character.player;
+
+
 import java.awt.Color; // allows me to add colour
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+
 public class GamePanel extends JPanel implements Runnable
 {
    // settup for your screen/game. Could become an import from a settings file.
    final int baseTileSize = 16; 
    // The characters will be 16x16 'Tiles', can be changed later using scale
    final int scale = 2;
-   final int realTileSize = baseTileSize * scale; // Real size is base * scale,
+   public final int realTileSize = baseTileSize * scale; // Real size is base * scale,
    final int maxScreenCollum = 16;
    final int maxScreenRow=12; //16:12 is 4:3 Aspect ratio. Probably will change
    final int screenWidth = realTileSize * maxScreenCollum; 
@@ -26,6 +32,7 @@ public class GamePanel extends JPanel implements Runnable
   
   KeyInput keyI = new KeyInput(); 
    Thread gameThread;
+   player player = new player(this,keyI); // imports character + key input
    
    // Setting the player's default position
    int playerX = 100;
@@ -48,7 +55,7 @@ public void startGame() { // calls the 'run' method to start.
 }
 public void run() { // the loop in which the game runs
 while(gameThread != null){
-    System.out.println("Game Loop is running.");
+    //System.out.println("Game Loop is running.");
     // This can be used to broadcast character position, and draw the screen.
     double drawInterval = 1000000000/framesPerSecond; //30 FPS
     double nextDrawTime = System.nanoTime() + drawInterval;
@@ -74,28 +81,13 @@ nextDrawTime += drawInterval;
 }
 }
 public void update() {
-if (keyI.wKeyDown == true){
-    playerY -=playerSpeed;
-    
-}
-if (keyI.sKeyDown==true){
-    playerY +=playerSpeed;
-
-}
-if (keyI.aKeyDown==true){
-    playerX-=playerSpeed;
-
-}
-if (keyI.dKeyDown==true){
-    playerX+=playerSpeed;
-}
+player.update();
 }
 public void paintComponent(Graphics g){ //java plugin for graphics.
     super.paintComponent(g);
 Graphics2D g2 = (Graphics2D)g;
-g2.setColor(Color.white);
-g2.fillRect(playerX,playerY,realTileSize,realTileSize);
-g2.dispose();
+player.draw(g2);
+
 }
 }
 
