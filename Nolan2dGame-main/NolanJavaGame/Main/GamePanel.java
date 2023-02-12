@@ -5,7 +5,7 @@ package Main;
  * Write a description of class GamePanel here.
  *
  * @author Nolan Peterson
- * @version 2/10/2023
+ * @version 2/12/2023
  */
 import java.awt.Dimension;
 import javax.swing.JPanel;
@@ -40,7 +40,7 @@ int playerY = 100;
 int playerSpeed = 6;
 
 // FPS LOCKER
-int framesPerSecond=30;
+int framesPerSecond=60;
 public GamePanel () {
     this.setPreferredSize(new Dimension(screenWidth, screenHeight));
     this.setBackground(Color.black);
