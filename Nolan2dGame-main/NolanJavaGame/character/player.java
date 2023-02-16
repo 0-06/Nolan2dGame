@@ -75,20 +75,20 @@ System.out.println("image loading done");
     
             System.out.println("going up");
         }
-        if (keyI.sKeyDown==true){
+        else if (keyI.sKeyDown==true){
             y +=speed;
             direction = "down";
         }
-        if (keyI.aKeyDown==true){
+        else if (keyI.aKeyDown==true){
             x-=speed;
             direction = "left";
         }
-        if (keyI.dKeyDown==true){
+        else if (keyI.dKeyDown==true){
             x+=speed;
             direction = "right";
         }
         animationCount++;
-        if(animationCount > 6){
+        if(animationCount > 5){
             if(animationNum==1){
                 animationNum=2;
             }

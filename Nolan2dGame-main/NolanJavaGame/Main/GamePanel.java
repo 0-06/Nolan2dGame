@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 
 import character.player;
-
+import tile.TileManager;
 
 import java.awt.Color; // allows me to add colour
 import java.awt.Graphics;
@@ -27,17 +27,16 @@ public class GamePanel extends JPanel implements Runnable
    public final int realTileSize = baseTileSize * scale; // Real size is base * scale,
    final int maxScreenCollum = 16;
    final int maxScreenRow=12; //16:12 is 4:3 Aspect ratio. Probably will change
-   final int screenWidth = realTileSize * maxScreenCollum; 
-   final int screenHeight = realTileSize * maxScreenRow; //screen width and height will be the amount of pixels.
+   public final int screenWidth = realTileSize * maxScreenCollum; 
+  public final int screenHeight = realTileSize * maxScreenRow; //screen width and height will be the amount of pixels.
   
   KeyInput keyI = new KeyInput(); 
    Thread gameThread;
    player player = new player(this,keyI); // imports character + key input
+   TileManager tileM = new TileManager(this);
    
    // Setting the player's default position
-   int playerX = 100;
-int playerY = 100; 
-int playerSpeed = 6;
+  
 
 // FPS LOCKER
 int framesPerSecond=60;
@@ -57,7 +56,7 @@ public void run() { // the loop in which the game runs
 while(gameThread != null){
     //System.out.println("Game Loop is running.");
     // This can be used to broadcast character position, and draw the screen.
-    double drawInterval = 1000000000/framesPerSecond; //30 FPS
+    double drawInterval = 1000000000/framesPerSecond; //60 FPS
     double nextDrawTime = System.nanoTime() + drawInterval;
 
 
@@ -85,9 +84,11 @@ player.update();
 }
 public void paintComponent(Graphics g){ //java plugin for graphics.
     super.paintComponent(g);
-Graphics2D g2 = (Graphics2D)g;
-player.draw(g2);
 
+Graphics2D g2 = (Graphics2D)g;
+tileM.draw(g2);
+player.draw(g2);
+g2.dispose();
 }
 }
 
