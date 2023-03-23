@@ -23,10 +23,10 @@ public class GamePanel extends JPanel implements Runnable
    // settup for your screen/game. Could become an import from a settings file.
    final int baseTileSize = 16; 
    // The characters will be 16x16 'Tiles', can be changed later using scale
-   final int scale = 2;
+   final int scale = 4;
    public final int realTileSize = baseTileSize * scale; // Real size is base * scale,
-   final int maxScreenCollum = 16;
-   final int maxScreenRow=12; //16:12 is 4:3 Aspect ratio. Probably will change
+   public final int maxScreenCollum = 16;
+   public final int maxScreenRow=12; //16:12 is 4:3 Aspect ratio. Probably will change
    public final int screenWidth = realTileSize * maxScreenCollum; 
   public final int screenHeight = realTileSize * maxScreenRow; //screen width and height will be the amount of pixels.
   
