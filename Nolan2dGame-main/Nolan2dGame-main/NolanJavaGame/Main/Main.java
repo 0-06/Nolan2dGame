@@ -5,7 +5,7 @@ package Main;
  * The Main Class for my Java Project
  *
  * @Nolan Peterson
- * @version (2/9/2023)
+ * @version (2/10/2023)
  */
 import javax.swing.JFrame;
 public class Main
@@ -22,6 +22,8 @@ public class Main
      
     window.setLocationRelativeTo(null); // takes the window to the middle, can be moved
     window.setVisible(true); // window is forced to be visible
+    
+    gamePanel.startGame();
     }
     }
 

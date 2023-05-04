@@ -2,12 +2,4 @@
 comment0.target=GamePanel
 comment1.params=
 comment1.target=GamePanel()
-comment2.params=
-comment2.target=void\ startGame()
-comment3.params=
-comment3.target=void\ run()
-comment4.params=
-comment4.target=void\ update()
-comment5.params=g
-comment5.target=void\ paintComponent(java.awt.Graphics)
-numComments=6
+numComments=2
