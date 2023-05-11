@@ -5,7 +5,7 @@ package character;
  * The class where I will keep the player character
  *
  * @Nolan Peterson
- * @2/12/2023
+ * @5/12/2023
  */
 import Main.GamePanel;
 import Main.KeyInput;
@@ -20,17 +20,22 @@ public class player extends character
     GamePanel gp; 
     KeyInput keyI; 
     
+public final int screenX;
+public final int screenY;
 
     public player(GamePanel gp, KeyInput keyI) {
 
         this.gp = gp;
         this.keyI = keyI;
+
+        screenX = gp.screenWidth/2 - (gp.realTileSize/2);
+        screenY = gp.screenHeight/2 - (gp.realTileSize/2);
         setDefaultValue();
         getPlayerImage();
     }
     public void setDefaultValue(){
-x=100;
-y=100;
+worldX=100;
+worldY=100;
 speed=4;
 direction="up";
     }
@@ -69,22 +74,22 @@ System.out.println("image loading done");
     public void update(){
         if (keyI.aKeyDown == true ||keyI.sKeyDown == true | keyI.dKeyDown == true || keyI.wKeyDown == true){
         if (keyI.wKeyDown == true){
-            y -=speed;
+            worldY -=speed;
             direction = "up";
 
     
             System.out.println("going up");
         }
         else if (keyI.sKeyDown==true){
-            y +=speed;
+        worldY +=speed;
             direction = "down";
         }
         else if (keyI.aKeyDown==true){
-            x-=speed;
+            worldX-=speed;
             direction = "left";
         }
         else if (keyI.dKeyDown==true){
-            x+=speed;
+            worldX+=speed;
             direction = "right";
         }
         animationCount++;
@@ -200,7 +205,7 @@ break;
 
 
       }
-      g2.drawImage(image, x, y, gp.realTileSize, gp.realTileSize, null);
+      g2.drawImage(image, screenX, screenY, gp.realTileSize, gp.realTileSize, null);
         g2.dispose();
     }
 }

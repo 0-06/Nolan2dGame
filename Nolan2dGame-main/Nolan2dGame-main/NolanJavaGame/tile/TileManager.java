@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 import java.awt.Graphics2D;
@@ -18,7 +19,7 @@ public class TileManager {
         this.gp = gp;
 
         tile = new tile[10];
-        mapTileNumber = new int[gp.maxScreenCollum][gp.maxScreenRow];
+        mapTileNumber = new int[gp.maxWorldCol][gp.maxWorldRow];
         getTileImage();
         loadMap("/maps/map0.txt");
     }
@@ -27,16 +28,35 @@ public class TileManager {
         try {
             tile[0] = new tile();
             tile[0].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("tiles/grass.png"));
-
+    System.out.println("loaded grass");
+    
             tile[1] = new tile();
             tile[1].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("tiles/dirt.png"));
-
+            System.out.println("loaded dirt");
             tile[2] = new tile();
             tile[2].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("tiles/water.png"));
+            System.out.println("loaded water");
+            tile[3] = new tile();
+            tile[3].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("tiles/sand.png"));
+            System.out.println("loaded sand");
+            tile[4] = new tile();
+            URL url = getClass().getClassLoader().getResource("tiles/tree.png");
+if (url != null) {
+    System.out.println("Found tree.png at " + url.getPath());
+} else { // I got chat GPT to write this, as debug code, and for some reason it allowed the tree to load?
+    System.out.println("tree.png not found");
+}
+            tile[4].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("tiles/tree.png"));
+            System.out.println("loaded tree");
+            tile[5] = new tile();
+            tile[5].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("tiles/wall.png"));
+            System.out.println("loaded wall");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    
+    
 
     public void loadMap(String mapPath) {
         try {
@@ -58,6 +78,15 @@ public class TileManager {
                             break;
                         case 'W':
                             tileNum = 2;
+                            break;
+                            case 'S':
+                            tileNum = 3;
+                            break;
+                            case 'T':
+                            tileNum = 4;
+                            break;
+                            case 'B':
+                            tileNum=5;
                             break;
                         default:
                             tileNum = 0;

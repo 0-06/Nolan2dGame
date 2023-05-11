@@ -30,6 +30,11 @@ public class GamePanel extends JPanel implements Runnable
    public final int screenWidth = realTileSize * maxScreenCollum; 
   public final int screenHeight = realTileSize * maxScreenRow; //screen width and height will be the amount of pixels.
   
+//World Settings
+public final int maxWorldCol = 50;
+public final int maxWorldRow = 50;
+public final int maxWorldWidth = realTileSize * maxWorldCol;
+public final int maxWorldHeight = realTileSize * maxWorldRow;
   KeyInput keyI = new KeyInput(); 
    Thread gameThread;
    player player = new player(this,keyI); // imports character + key input
