@@ -11,6 +11,7 @@ import Main.GamePanel;
 import Main.KeyInput;
 import java.io.*;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
@@ -30,6 +31,7 @@ public final int screenY;
 
         screenX = gp.screenWidth/2 - (gp.realTileSize/2);
         screenY = gp.screenHeight/2 - (gp.realTileSize/2);
+        playerBox=new Rectangle(0,0,gp.realTileSize-16,gp.realTileSize-16);
         setDefaultValue();
         getPlayerImage();
     }

@@ -1,6 +1,8 @@
 package character;
 
 
+import java.awt.Rectangle;
+
 /**
  * The class where I will keep characters such as enemies
  * 
@@ -23,7 +25,8 @@ public class character
     public String direction;
 public int animationCount =0;
 public int animationNum = 1;
-
+public Rectangle playerBox;
+public boolean collisionIsOn=false;
    
         }
     

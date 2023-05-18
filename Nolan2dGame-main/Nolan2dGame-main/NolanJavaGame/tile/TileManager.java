@@ -36,6 +36,7 @@ public class TileManager {
             tile[2] = new tile();
             tile[2].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("tiles/water.png"));
             System.out.println("loaded water");
+            tile[2].collision=true; 
             tile[3] = new tile();
             tile[3].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("tiles/sand.png"));
             System.out.println("loaded sand");
@@ -48,9 +49,11 @@ if (url != null) {
 }
             tile[4].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("tiles/tree.png"));
             System.out.println("loaded tree");
+            tile[4].collision=true; 
             tile[5] = new tile();
             tile[5].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("tiles/wall.png"));
             System.out.println("loaded wall");
+            tile[5].collision=true; 
         } catch (IOException e) {
             e.printStackTrace();
         }

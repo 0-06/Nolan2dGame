@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import character.player;
 import tile.TileManager;
+import tile.collisionCheck;
 
 import java.awt.Color; // allows me to add colour
 import java.awt.Graphics;
@@ -37,6 +38,7 @@ public final int maxWorldWidth = realTileSize * maxWorldCol;
 public final int maxWorldHeight = realTileSize * maxWorldRow;
   KeyInput keyI = new KeyInput(); 
    Thread gameThread;
+   collisionCheck collisionCheck = new collisionCheck(this);
    public player player = new player(this,keyI); // imports character + key input
    TileManager tileM = new TileManager(this);
    
