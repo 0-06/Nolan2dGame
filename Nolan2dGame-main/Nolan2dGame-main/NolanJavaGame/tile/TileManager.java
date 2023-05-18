@@ -64,11 +64,11 @@ if (url != null) {
 
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
-            for (int row = 0; row < gp.maxScreenRow; row++) {
+            for (int row = 0; row < gp.maxWorldRow; row++) {
                 String line = br.readLine();
                 String[] characters = line.split("");
 
-                for (int col = 0; col < gp.maxScreenCollum; col++) {
+                for (int col = 0; col < gp.maxWorldCol; col++) {
                     char currentChar = characters[col].charAt(0);
                     int tileNum;
 
@@ -104,11 +104,29 @@ if (url != null) {
     }
 
     public void draw(Graphics2D g2) {
-        for (int col = 0; col < gp.maxScreenCollum; col++) {
-            for (int row = 0; row < gp.maxScreenRow; row++) {
-                int currentTile = mapTileNumber[col][row];
-                g2.drawImage(tile[currentTile].image, col * gp.realTileSize, row * gp.realTileSize, gp.realTileSize, gp.realTileSize, null);
-            }
+        
+        
+     //   for (int worldCol = 0; worldCol < gp.maxWorldCol; worldCol++) {
+       //     for (int worldRow = 0; worldRow < gp.maxWorldRow; worldRow++) {
+         //       int currentTile = mapTileNumber[worldCol][worldRow];
+           //     g2.drawImage(tile[currentTile].image, worldCol * gp.realTileSize, worldRow * gp.realTileSize, gp.realTileSize, gp.realTileSize, null);
+           // }
+       // }
+        int worldCol=0;
+        int worldRow=0;
+        while (worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow){
+int worldX = worldCol * gp.realTileSize;
+int worldY = worldRow*gp.realTileSize;
+int screenX = worldX - gp.player.worldX+gp.player.screenX;
+int screenY = worldY - gp.player.worldY+gp.player.screenY;
+
+int currentTile = mapTileNumber[worldCol][worldRow];
+g2.drawImage(tile[currentTile].image, screenX, screenY, gp.realTileSize, gp.realTileSize, null);
+worldCol++;
+if (worldCol == gp.maxWorldCol) {
+    worldCol = 0;
+    worldRow++;
+}
         }
     }
 }

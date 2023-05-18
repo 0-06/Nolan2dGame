@@ -37,7 +37,7 @@ public final int maxWorldWidth = realTileSize * maxWorldCol;
 public final int maxWorldHeight = realTileSize * maxWorldRow;
   KeyInput keyI = new KeyInput(); 
    Thread gameThread;
-   player player = new player(this,keyI); // imports character + key input
+   public player player = new player(this,keyI); // imports character + key input
    TileManager tileM = new TileManager(this);
    
    // Setting the player's default position

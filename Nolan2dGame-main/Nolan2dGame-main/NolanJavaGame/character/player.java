@@ -36,7 +36,7 @@ public final int screenY;
     public void setDefaultValue(){
 worldX=100;
 worldY=100;
-speed=4;
+speed=6;
 direction="up";
     }
     public void getPlayerImage () {
