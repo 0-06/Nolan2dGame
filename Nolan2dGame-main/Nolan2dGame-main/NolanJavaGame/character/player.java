@@ -76,22 +76,22 @@ System.out.println("image loading done");
     public void update(){
         if (keyI.aKeyDown == true ||keyI.sKeyDown == true | keyI.dKeyDown == true || keyI.wKeyDown == true){
         if (keyI.wKeyDown == true){
-            worldY -=speed;
+            
             direction = "up";
 
     
             System.out.println("going up");
         }
         else if (keyI.sKeyDown==true){
-        worldY +=speed;
+      
             direction = "down";
         }
         else if (keyI.aKeyDown==true){
-            worldX-=speed;
+          
             direction = "left";
         }
         else if (keyI.dKeyDown==true){
-            worldX+=speed;
+           
             direction = "right";
         }
         animationCount++;
@@ -125,7 +125,27 @@ System.out.println("image loading done");
         direction ="rightStill";
     }
 
+// Checking tile collision
+collisionIsOn = false; 
+gp.collisionCheck.checkTile(this);
 
+//if collision is false, player can move
+if (collisionIsOn == false){
+    switch (direction) {
+        case "up":
+        worldY -=speed;
+        break;
+        case "down":
+        worldY +=speed;
+        break;
+        case "left":
+        worldX-=speed;
+        break;
+        case "right":
+        worldX+=speed;
+        break;
+    }
+}
     
     }
     public void draw(Graphics2D g2){

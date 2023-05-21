@@ -38,9 +38,15 @@ public final int maxWorldWidth = realTileSize * maxWorldCol;
 public final int maxWorldHeight = realTileSize * maxWorldRow;
   KeyInput keyI = new KeyInput(); 
    Thread gameThread;
-   collisionCheck collisionCheck = new collisionCheck(this);
+
+   // Collision Check
+
+   public collisionCheck collisionCheck = new collisionCheck(this);
+  
+
+
    public player player = new player(this,keyI); // imports character + key input
-   TileManager tileM = new TileManager(this);
+   public TileManager tileM = new TileManager(this);
    
    // Setting the player's default position
   

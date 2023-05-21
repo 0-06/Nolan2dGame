@@ -15,7 +15,7 @@ public class tile
     public BufferedImage image;
     public boolean collision;
     {
-      boolean collision = false;
+      
        
     }
 
