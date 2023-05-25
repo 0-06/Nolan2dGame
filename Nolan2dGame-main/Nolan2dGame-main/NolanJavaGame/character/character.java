@@ -4,7 +4,7 @@ package character;
 import java.awt.Rectangle;
 
 /**
- * The class where I will keep characters such as enemies
+ * The class where I will keep character variables such as enemies
  * 
  * Credit for Character Sprite goes to 'elouai.com'
  *

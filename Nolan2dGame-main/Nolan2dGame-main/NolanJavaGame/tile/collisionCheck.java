@@ -31,46 +31,47 @@ public void  checkTile(character character){
 
     switch(character.direction){
         case "up":
-        characterTopRow=(characterTopY - character.speed)/gp.realTileSize; // This will predict where the player will be after they move - or what tile they are trying to step into
+        characterTopRow=(int)Math.floor((double)(characterTopY - character.speed)/gp.realTileSize); 
+        characterTopRow=(characterTopY - character.speed)/gp.realTileSize; 
         tileNum1 = gp.tileM.mapTileNumber[characterLeftCol][characterTopRow]; 
         tileNum2 = gp.tileM.mapTileNumber[characterRightCol][characterTopRow];
-        if (gp.tileM.tile[tileNum1].collision==true || gp.tileM.tile[tileNum2].collision == true){ // If the tile the player is going into is solid, collision is true.
-
+        if (gp.tileM.tile[tileNum1].collision==true || gp.tileM.tile[tileNum2].collision == true){ 
             character.collisionIsOn = true;
         }
-        
         break;
         case "down":
-        characterBottomRow=(characterBottomY - character.speed)/gp.realTileSize; // This will predict where the player will be after they move - or what tile they are trying to step into
+        characterBottomRow=(int)Math.floor((double)(characterBottomY + character.speed)/gp.realTileSize); 
+        characterBottomRow=(characterBottomY + character.speed)/gp.realTileSize; 
         tileNum1 = gp.tileM.mapTileNumber[characterLeftCol][characterBottomRow];
         tileNum2 = gp.tileM.mapTileNumber[characterRightCol][characterBottomRow];
-        if (gp.tileM.tile[tileNum1].collision==true || gp.tileM.tile[tileNum2].collision == true){ // If the tile the player is going into is solid, collision is true.
-            
+        if (gp.tileM.tile[tileNum1].collision==true || gp.tileM.tile[tileNum2].collision == true){ 
             character.collisionIsOn = true;
         }
         break;
         case "left":
-        characterLeftCol=(characterLeftX + character.speed)/gp.realTileSize; // This will predict where the player will be after they move - or what tile they are trying to step into
+        characterLeftCol=(int)Math.floor((double)(characterLeftX - character.speed)/gp.realTileSize); 
+        characterLeftCol=(characterLeftX - character.speed)/gp.realTileSize; 
         tileNum1 = gp.tileM.mapTileNumber[characterLeftCol][characterTopRow]; 
         tileNum2 = gp.tileM.mapTileNumber[characterLeftCol][characterBottomRow];
-        if (gp.tileM.tile[tileNum1].collision==true || gp.tileM.tile[tileNum2].collision == true){ // If the tile the player is going into is solid, collision is true.
-            
+        if (gp.tileM.tile[tileNum1].collision==true || gp.tileM.tile[tileNum2].collision == true){ 
             character.collisionIsOn = true;
         }
         break;
         case "right":
-        characterRightCol=(characterLeftX + character.speed)/gp.realTileSize; // This will predict where the player will be after they move - or what tile they are trying to step into
+        characterRightCol=(int)Math.floor((double)(characterRightX + character.speed)/gp.realTileSize); 
+        characterRightCol=(characterRightX + character.speed)/gp.realTileSize; 
         tileNum1 = gp.tileM.mapTileNumber[characterRightCol][characterTopRow];
         tileNum2 = gp.tileM.mapTileNumber[characterRightCol][characterBottomRow];
-        if (gp.tileM.tile[tileNum1].collision==true || gp.tileM.tile[tileNum2].collision == true){ // If the tile the player is going into is solid, collision is true.
-            
+        if (gp.tileM.tile[tileNum1].collision==true || gp.tileM.tile[tileNum2].collision == true){ 
             character.collisionIsOn = true;
         }
         break;
     }
+    
+    }
 }
 
-    }
+    
 
 
 

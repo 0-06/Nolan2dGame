@@ -21,8 +21,8 @@ public class player extends character
     GamePanel gp; 
     KeyInput keyI; 
     
-public final int screenX;
-public final int screenY;
+public  int screenX;
+public  int screenY;
 
     public player(GamePanel gp, KeyInput keyI) {
 
@@ -31,14 +31,14 @@ public final int screenY;
 
         screenX = gp.screenWidth/2 - (gp.realTileSize/2);
         screenY = gp.screenHeight/2 - (gp.realTileSize/2);
-        playerBox=new Rectangle(0,0,gp.realTileSize-16,gp.realTileSize-16);
+        playerBox=new Rectangle(16,16,gp.realTileSize-16,gp.realTileSize-16);
         setDefaultValue();
         getPlayerImage();
     }
     public void setDefaultValue(){
-worldX=100;
+worldX=500;
 worldY=100;
-speed=6;
+speed=7;
 direction="up";
     }
     public void getPlayerImage () {
@@ -80,7 +80,7 @@ System.out.println("image loading done");
             direction = "up";
 
     
-            System.out.println("going up");
+           // System.out.println("going up");
         }
         else if (keyI.sKeyDown==true){
       
