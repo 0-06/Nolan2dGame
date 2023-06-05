@@ -10,7 +10,7 @@ package Main;
 import java.awt.Dimension;
 import javax.swing.JPanel;
 
-
+import Objects.SuperObject;
 import character.player;
 import tile.TileManager;
 import tile.collisionCheck;
@@ -49,8 +49,8 @@ public final int maxWorldHeight = realTileSize * maxWorldRow;
    public TileManager tileM = new TileManager(this);
    
    // Setting the player's default position
-  
-
+  public SuperObject obj[] = new SuperObject[10]; // Can display up to 10 objects at the same time.
+public AssetPlacer aPlacer = new AssetPlacer(this);
 // FPS LOCKER
 int framesPerSecond=60;
 public GamePanel () {
@@ -59,6 +59,10 @@ public GamePanel () {
     this.addKeyListener(keyI);  // Listens for the KeyInput
     this.setFocusable(true); // The game can be 'focused' in windows
 
+}
+public void setupGame(){
+    aPlacer.setObject();
+    
 }
 public void startGame() { // calls the 'run' method to start.
  gameThread = new Thread(this);

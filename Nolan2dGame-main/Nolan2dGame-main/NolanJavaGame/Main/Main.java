@@ -22,7 +22,7 @@ public class Main
      
     window.setLocationRelativeTo(null); // takes the window to the middle, can be moved
     window.setVisible(true); // window is forced to be visible
-    
+    gamePanel.setupGame();
     gamePanel.startGame();
     }
     }
