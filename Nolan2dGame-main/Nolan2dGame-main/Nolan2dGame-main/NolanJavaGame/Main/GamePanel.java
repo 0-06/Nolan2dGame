@@ -10,7 +10,7 @@ package Main;
 import java.awt.Dimension;
 import javax.swing.JPanel;
 
-import Objects.SuperObject;
+import objects1.SuperObject;
 import character.player;
 import tile.TileManager;
 import tile.collisionCheck;
@@ -99,21 +99,20 @@ nextDrawTime += drawInterval;
 public void update() {
 player.update();
 }
-public void paintComponent(Graphics g){ //java plugin for graphics.
+public void paintComponent(Graphics g){
     super.paintComponent(g);
-
-Graphics2D g2 = (Graphics2D)g;
-tileM.draw(g2);
-player.draw(g2);
-//System.out.println(player.worldX); 
-//System.out.println(player.worldY);
-for (int i=0; i<obj.length; i++){
-    if (obj[i] != null){ 
-       // System.out.println("drawn object");
-        obj[i].draw(g2,this);
+    Graphics2D g2 = (Graphics2D)g;
+    tileM.draw(g2);
+  
+    for (int i=0; i<obj.length; i++){
+        if (obj[i] != null){ 
+            obj[i].draw(g2,this);
+            System.out.println("Drawing object: " + obj[i].name);
+        }
+        
     }
-}
-g2.dispose();
+      player.draw(g2);
+    g2.dispose();
 }
 }
 
