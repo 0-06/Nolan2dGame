@@ -227,8 +227,9 @@ break;
 
 
       }
-      
+         System.out.println("Drawing player: at " +worldX + "Y"+ worldY );
       g2.drawImage(image, screenX, screenY, gp.realTileSize, gp.realTileSize, null);
         g2.dispose();
+        
     }
 }

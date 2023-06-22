@@ -28,7 +28,7 @@ public class SuperObject
     screenY-gp.realTileSize < gp.screenHeight){
        g2.drawImage(image, screenX, screenY, gp.realTileSize, gp.realTileSize, null);
 
-       System.out.println("Drawing object: " + name + " at screen coordinates: (" + screenX + ", " + screenY + ")");
+   //    System.out.println("Drawing object: " + name + " at screen coordinates: (" + screenX + ", " + screenY + ")");
 
   
   

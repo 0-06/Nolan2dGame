@@ -107,7 +107,7 @@ public void paintComponent(Graphics g){
     for (int i=0; i<obj.length; i++){
         if (obj[i] != null){ 
             obj[i].draw(g2,this);
-            System.out.println("Drawing object: " + obj[i].name);
+          //  System.out.println("Drawing object: " + obj[i].name);
         }
         
     }
