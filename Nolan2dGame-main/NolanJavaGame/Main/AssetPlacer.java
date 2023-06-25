@@ -19,8 +19,11 @@ public class AssetPlacer{
          System.out.println();
         System.out.println("Key object created: " + gp.obj[0]);
         gp.obj[1] = new Door();
-        gp.obj[1].worldX = 33 *gp.realTileSize;
-        gp.obj[1].worldY = 7 * gp.realTileSize;
+        gp.obj[1].worldX = 38 *gp.realTileSize;
+        gp.obj[1].worldY = 10 * gp.realTileSize;
+        gp.obj[2] = new Chest();
+        gp.obj[2].worldX = 38 * gp.realTileSize;
+            gp.obj[2].worldY = 6 * gp.realTileSize;
 
     }
 }

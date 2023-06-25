@@ -31,7 +31,7 @@ public  int screenY;
 
         screenX = gp.screenWidth/2 - (gp.realTileSize/2);
         screenY = gp.screenHeight/2 - (gp.realTileSize/2);
-        playerBox=new Rectangle(16,16,gp.realTileSize-16,gp.realTileSize-16);
+        playerBox=new Rectangle(16,16,gp.realTileSize-32,gp.realTileSize-32);
         setDefaultValue();
         getPlayerImage();
     }
