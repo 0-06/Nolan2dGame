@@ -69,6 +69,82 @@ public void  checkTile(character character){
         break;
     }
     
+}
+    public int checkObject(character character, boolean player){
+        int index = 999;
+        for(int i=0; i<gp.obj.length; i++) { 
+if (gp.obj[i] !=null){
+    // Get player's position for collision
+   character.playerBox.x = character.worldX + character.playerBox.x;
+    character.playerBox.y = character.worldY + character.playerBox.y;
+    //get the object's solid position
+    gp.obj[i].playerBox.x = gp.obj[i].worldX + gp.obj[1].playerBox.x;
+    gp.obj[i].playerBox.y = gp.obj[i].worldY + gp.obj[1].playerBox.y;
+
+    switch(character.direction){
+       
+       
+       // Simulates players location AFTER it has moved, will it be on a collision object?
+        case "up": 
+character.playerBox.y -= character.speed;
+    if(character.playerBox.intersects(gp.obj[i].playerBox)) {
+            System.out.println("colliding");
+            if(gp.obj[i].collision == true){
+                character.collisionIsOn=true;
+            }
+            if(player==true){
+                index = i; // Potential NPC's cannot pick up objects
+            }
+    }
+        break;
+          case "down":
+          character.playerBox.y+= character.speed;
+          if(character.playerBox.intersects(gp.obj[i].playerBox)) {
+            System.out.println("colliding");
+            if(gp.obj[i].collision == true){
+                character.collisionIsOn=true;
+            }
+            if(player==true){
+                index = i; // Potential NPC's cannot pick up objects
+            }
+          }
+        break;
+          case "left":
+          character.playerBox.x-= character.speed;
+            if(character.playerBox.intersects(gp.obj[i].playerBox)) {
+            System.out.println("colliding");
+            if(gp.obj[i].collision == true){
+                character.collisionIsOn=true;
+            }
+            if(player==true){
+                index = i; // Potential NPC's cannot pick up objects
+            }
+            }
+        break;
+          case "right":
+          character.playerBox.x+= character.speed;
+            if(character.playerBox.intersects(gp.obj[i].playerBox)) {
+            System.out.println("colliding");
+            if(gp.obj[i].collision == true){
+                character.collisionIsOn=true;
+            }
+            if(player==true){
+                index = i; // Potential NPC's cannot pick up objects
+            }
+            
+        break;
+            }
+
+    }
+    character.playerBox.x = character.playerBoxDefaultX;
+ character.playerBox.y = character.playerBoxDefaultY;
+ gp.obj[i].playerBox.x = gp.obj[i].playerBoxDefaultX;
+  gp.obj[i].playerBox.y = gp.obj[i].playerBoxDefaultY;
+    
+}
+        }
+        return index;
+
     }
 }
 

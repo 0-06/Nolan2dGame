@@ -32,6 +32,14 @@ public  int screenY;
         screenX = gp.screenWidth/2 - (gp.realTileSize/2);
         screenY = gp.screenHeight/2 - (gp.realTileSize/2);
         playerBox=new Rectangle(16,16,gp.realTileSize-32,gp.realTileSize-32);
+
+        playerBox.x = 8;
+        playerBox.y=16;
+        playerBoxDefaultX = playerBox.x;
+        playerBoxDefaultY= playerBox.y;
+        playerBox.width = 32;
+        playerBox.height = 32;
+
         setDefaultValue();
         getPlayerImage();
     }
@@ -128,6 +136,9 @@ System.out.println("image loading done");
 // Checking tile collision
 collisionIsOn = false; 
 gp.collisionCheck.checkTile(this);
+
+// Check Object Collision
+int objIndex = gp.collisionCheck.checkObject(this, true);
 
 //if collision is false, player can move
 if (collisionIsOn == false){
@@ -227,7 +238,7 @@ break;
 
 
       }
-         System.out.println("Drawing player: at " +worldX + "Y"+ worldY );
+        //w System.out.println("Drawing player: at " +worldX + "Y"+ worldY );
       g2.drawImage(image, screenX, screenY, gp.realTileSize, gp.realTileSize, null);
         g2.dispose();
         

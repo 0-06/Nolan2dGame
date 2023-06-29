@@ -27,7 +27,8 @@ public int animationCount =0;
 public int animationNum = 1;
 public Rectangle playerBox;
 public boolean collisionIsOn=false;
-   
+
+   public int playerBoxDefaultX, playerBoxDefaultY;
         }
     
 
