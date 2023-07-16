@@ -17,6 +17,7 @@ public class SuperObject
     public String name;
     public boolean collision = false;
     public int worldX, worldY;
+    public boolean isActive = true;
     public Rectangle playerBox = new Rectangle(0,0,48,48);
     public int playerBoxDefaultX = 0;
     public int playerBoxDefaultY = 0;

@@ -23,7 +23,7 @@ public class player extends character
     
 public  int screenX;
 public  int screenY;
-
+int hasKey = 0; // how many keys the player currently has
     public player(GamePanel gp, KeyInput keyI) {
 
         this.gp = gp;
@@ -139,7 +139,7 @@ gp.collisionCheck.checkTile(this);
 
 // Check Object Collision
 int objIndex = gp.collisionCheck.checkObject(this, true);
-
+pickUpObject(objIndex);
 //if collision is false, player can move
 if (collisionIsOn == false){
     switch (direction) {
@@ -159,6 +159,41 @@ if (collisionIsOn == false){
 }
     
     }
+
+    public void pickUpObject(int i){ // method for picking up objects
+        if (i !=999){
+String objectName = gp.obj[i].name;
+switch (objectName) { // When touching objects, what happens?
+    case "Key":
+    
+      System.out.println("Touching Key");
+    hasKey++; 
+    System.out.println("added Key, you now have "+hasKey);
+    gp.obj[i]=null; // add to number of keys, delete key from screen
+
+    break;
+    case "Door": // If you have a key, delete door and remove one key 
+      System.out.println("Touching Door");
+    if (hasKey >0) {
+        gp.obj[i] = null;
+        hasKey--; 
+        System.out.println("removed Key, you now have "+hasKey);
+    }
+    
+    break;
+    //case "Chest": 
+     //System.out.println("Touching Chest");
+     //if ( hasKey >0 ) {
+       // gp.obj[i] = null;
+       // hasKey--;
+    // }
+//System.out.println("removed Key, you now have "+hasKey);
+//break;
+}
+}
+
+}
+    
     public void draw(Graphics2D g2){
       //  //g2.setColor(Color.white);
       ///  g2.fillRect(x,y,gp.realTileSize,gp.realTileSize);
