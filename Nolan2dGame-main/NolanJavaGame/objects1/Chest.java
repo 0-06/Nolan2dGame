@@ -10,6 +10,7 @@ System.out.println("Loaded Chest"+image);
         }catch(IOException e) {
             e.printStackTrace();
         }
+        collision=true;
        }
 
     }

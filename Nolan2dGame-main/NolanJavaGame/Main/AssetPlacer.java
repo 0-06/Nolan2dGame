@@ -29,5 +29,19 @@ public class AssetPlacer{
             gp.obj[3].worldX = 42*gp.realTileSize;
             gp.obj[3].worldY = 3*gp.realTileSize;
 
+            gp.obj[4]=new Key();
+            gp.obj[4].worldX = 766;
+            gp.obj[4].worldY = 1283;
+
+            gp.obj[5] = new Chest();
+        gp.obj[5].worldX = 59;
+            gp.obj[5].worldY = 1724 ;
+
+              gp.obj[6] = new Chest();
+        gp.obj[6].worldX = 2628;
+            gp.obj[6].worldY = 2753 ;
+              gp.obj[7] = new Key();
+        gp.obj[7].worldX = 2481;
+            gp.obj[7].worldY = 2739 ;
     }
 }

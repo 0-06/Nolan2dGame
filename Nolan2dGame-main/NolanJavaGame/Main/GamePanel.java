@@ -37,6 +37,7 @@ public final int maxWorldRow = 50;
 public final int maxWorldWidth = realTileSize * maxWorldCol;
 public final int maxWorldHeight = realTileSize * maxWorldRow;
   KeyInput keyI = new KeyInput(); 
+  public UI ui= new UI(this);
    Thread gameThread;
 
    // Collision Check
@@ -102,16 +103,24 @@ player.update();
 public void paintComponent(Graphics g){
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D)g;
+    //draw tiles
     tileM.draw(g2);
-  
+  //draw objects
     for (int i=0; i<obj.length; i++){
         if (obj[i] != null){ 
             obj[i].draw(g2,this);
           //  System.out.println("Drawing object: " + obj[i].name);
         }
         
-    }
+
+    } 
+     //draw UI
+      ui.draw(g2);
+    //draw player
       player.draw(g2);
+
+     
+
     g2.dispose();
 }
 }

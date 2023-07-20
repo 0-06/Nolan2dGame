@@ -11,6 +11,7 @@ import Main.GamePanel;
 import Main.KeyInput;
 import java.io.*;
 import java.awt.Graphics2D;
+
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
@@ -23,7 +24,8 @@ public class player extends character
     
 public  int screenX;
 public  int screenY;
-int hasKey = 0; // how many keys the player currently has
+public int points = 0;
+public int hasKey = 0; // how many keys the player currently has
     public player(GamePanel gp, KeyInput keyI) {
 
         this.gp = gp;
@@ -173,21 +175,30 @@ switch (objectName) { // When touching objects, what happens?
 
     break;
     case "Door": // If you have a key, delete door and remove one key 
-      System.out.println("Touching Door");
-    if (hasKey >0) {
-        gp.obj[i] = null;
-        hasKey--; 
+     System.out.println("Touching Door");
+     if ( hasKey >0 ) {
+       gp.obj[i] = null;
+        hasKey--;
         System.out.println("removed Key, you now have "+hasKey);
-    }
+     }
+     break;
+       
     
-    break;
-    //case "Chest": 
-     //System.out.println("Touching Chest");
-     //if ( hasKey >0 ) {
-       // gp.obj[i] = null;
-       // hasKey--;
-    // }
-//System.out.println("removed Key, you now have "+hasKey);
+     // 20/07/2023: Bug where opening door stops any other object interaction. FIXED issue was collision check relied on obj[1] not being null.
+     
+    case "Chest": 
+     System.out.println("Touching Chest");
+     if ( hasKey >0 ) {
+       gp.obj[i] = null;
+        hasKey--;
+        points = points+1000;
+        System.out.println ("you got 1000 Points! you now have "+points);
+        System.out.println("removed Key, you now have "+hasKey);
+     }
+     break;
+     default: 
+     break;
+//
 //break;
 }
 }

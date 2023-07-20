@@ -78,10 +78,11 @@ if (gp.obj[i] !=null){
    character.playerBox.x = character.worldX + character.playerBox.x;
     character.playerBox.y = character.worldY + character.playerBox.y;
     //get the object's solid position
-    if (gp.obj[1] != null) { //  null check
-        gp.obj[i].playerBox.x = gp.obj[i].worldX + gp.obj[1].playerBox.x;
-        gp.obj[i].playerBox.y = gp.obj[i].worldY + gp.obj[1].playerBox.y;
-    }
+    
+      gp.obj[i].playerBox.x = gp.obj[i].worldX + gp.obj[i].playerBox.x;
+        gp.obj[i].playerBox.y = gp.obj[i].worldY + gp.obj[i].playerBox.y;
+    
+     
     switch(character.direction){
        
        
