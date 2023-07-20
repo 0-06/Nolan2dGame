@@ -17,7 +17,7 @@ public collisionCheck(GamePanel gp) {
     this.gp=gp;
 }
 public void  checkTile(character character){
-    int characterLeftX= character.worldX + character.playerBox.x;
+    int characterLeftX= character.worldX + character.playerBox.x +15;
     int characterRightX= character.worldX + character.playerBox.x + character.playerBox.width;
     int characterTopY= character.worldY + character.playerBox.y;
     int characterBottomY= character.worldY + character.playerBox.y + character.playerBox.height;

@@ -26,6 +26,7 @@ public  int screenX;
 public  int screenY;
 public int points = 0;
 public int hasKey = 0; // how many keys the player currently has
+
     public player(GamePanel gp, KeyInput keyI) {
 
         this.gp = gp;
@@ -194,6 +195,10 @@ switch (objectName) { // When touching objects, what happens?
         points = points+1000;
         System.out.println ("you got 1000 Points! you now have "+points);
         System.out.println("removed Key, you now have "+hasKey);
+     }
+     if (hasKey >0 && points >=2000){
+       gp.ui.gameFinished = true;
+       break;
      }
      break;
      default: 
