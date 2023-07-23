@@ -5,4 +5,6 @@ comment1.params=gp
 comment1.target=collisionCheck(Main.GamePanel)
 comment2.params=character
 comment2.target=void\ checkTile(character.character)
-numComments=3
+comment3.params=character\ player
+comment3.target=int\ checkObject(character.character,\ boolean)
+numComments=4

@@ -1,4 +1,4 @@
-package Main;
+package NolanJavaGame.Main;
 
 
 import java.awt.event.KeyEvent;

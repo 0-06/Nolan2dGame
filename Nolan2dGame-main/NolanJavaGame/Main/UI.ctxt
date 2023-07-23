@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=UI
+comment1.params=gp
+comment1.target=UI(GamePanel)
+comment2.params=g2
+comment2.target=void\ draw(java.awt.Graphics2D)
+numComments=3
