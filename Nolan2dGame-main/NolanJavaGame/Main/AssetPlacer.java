@@ -1,5 +1,5 @@
 
-package NolanJavaGame.Main;
+package Main;
 import objects1.Key;
 import objects1.Door;
 import objects1.Chest;

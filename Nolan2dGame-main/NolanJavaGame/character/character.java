@@ -1,4 +1,4 @@
-package NolanJavaGame.character;
+package character;
 
 import java.awt.Rectangle;
 /**

@@ -1,4 +1,4 @@
-package NolanJavaGame.Main;
+package Main;
 import java.awt.Graphics2D;
 import java.awt.Font;
 import java.awt.Color;
@@ -37,6 +37,7 @@ winTextLength = (int)g2.getFontMetrics().getStringBounds(winText, g2).getWidth()
 int x = gp.screenWidth/2 -winTextLength/2;
 int y = gp.screenHeight/2 - (gp.realTileSize*3);
 g2.drawString(winText,x,y);
+gp.gameThread = null; // Stops the game
 }
 else{
 g2.setFont(arial);
@@ -47,7 +48,7 @@ g2.drawString ("Chests Left: "+gp.player.chestsLeft, 50, 75);
 g2.drawString ("X: "+gp.player.worldX, 50, 100);
 g2.drawString ("Y: "+gp.player.worldY, 50, 125);
 //System.out.println(gp.player.hasKey);
-gp.gameThread = null; // Stops the game
+
 }
 
 }
