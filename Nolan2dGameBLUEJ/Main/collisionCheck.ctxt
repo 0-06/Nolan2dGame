@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=collisionCheck
+comment0.text=\r\n\ The\ Class\ where\ I\ establish\ things\ for\ collision\ \r\n\ \r\n\ \r\n\r\n\ @Nolan\ Peterson\r\n\ @22/05/2023\r\n
+comment1.params=gp
+comment1.target=collisionCheck(GamePanel)
+comment2.params=character
+comment2.target=void\ checkTile(character)
+comment3.params=character\ player
+comment3.target=int\ checkObject(character,\ boolean)
+numComments=4
